@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Información legal de Huella: política de privacidad y términos de uso." />
+  <title>Huella — Información legal</title>
+  <style>
+    :root {
+      --cream: #F9F7F2;
+      --terracotta: #C85A3C;
+      --terracotta-dark: #A84830;
+      --peach: #F5E0D0;
+      --peach-soft: #FBEFE6;
+      --text: #1C1C1C;
+      --text-secondary: #6B6B6B;
+      --border: #E8E4DC;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+    }
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--terracotta);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+      flex: 1;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .lead {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+    .cards {
+      display: grid;
+      gap: 1rem;
+    }
+    .card {
+      display: block;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      border-color: var(--terracotta);
+      box-shadow: 0 4px 16px rgba(200, 90, 60, 0.12);
+    }
+    .card h2 {
+      font-size: 1.15rem;
+      color: var(--terracotta-dark);
+      margin-bottom: 0.4rem;
+    }
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+    .card .arrow {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .note {
+      margin-top: 2rem;
+      background: var(--peach-soft);
+      border: 1px solid var(--peach);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      text-align: center;
+      width: 100%;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      main { padding: 1.75rem 1.15rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <span class="brand-mark" aria-hidden="true">🐾</span>
+      <span class="brand-name">Huella</span>
+    </div>
+  </header>
+
+  <main>
+    <h1>Información legal</h1>
+    <p class="lead">
+      Documentos oficiales de la app Huella para el cuidado de perros.
+      Puedes abrirlos desde el móvil o el ordenador; no hace falta instalar nada.
+    </p>
+
+    <div class="cards">
+      <a class="card" href="privacidad.html">
+        <h2>Política de privacidad</h2>
+        <p>Cómo tratamos los datos, permisos del teléfono y tus derechos.</p>
+        <span class="arrow">Leer →</span>
+      </a>
+      <a class="card" href="terminos.html">
+        <h2>Términos de uso</h2>
+        <p>Condiciones de uso de la app, la tienda y Huella Plus.</p>
+        <span class="arrow">Leer →</span>
+      </a>
+    </div>
+
+    <p class="note">
+      Estas páginas están publicadas para enlazarlas en App Store y Google Play.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2026 Huella</p>
+  </footer>
+</body>
+</html>
