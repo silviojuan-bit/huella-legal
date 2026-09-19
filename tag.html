@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Huella — Ficha de emergencia</title>
+  <style>
+    :root {
+      --cream: #F9F7F2;
+      --terracotta: #C85A3C;
+      --forest: #3E6B4F;
+      --text: #1C1C1C;
+      --muted: #6B6B6B;
+      --border: #E8E4DC;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--cream); color: var(--text); min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; padding: 1.25rem;
+    }
+    .brand { display: flex; align-items: center; gap: .5rem; margin: 1rem 0 1.5rem; font-weight: 700; }
+    .mark { width: 36px; height: 36px; border-radius: 12px; background: var(--terracotta); color: #fff; display:flex; align-items:center; justify-content:center; }
+    .card {
+      width: 100%; max-width: 420px; background: var(--white); border-radius: 20px;
+      border: 1px solid var(--border); padding: 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    }
+    .lost {
+      background: var(--terracotta); color: #fff; font-weight: 900; text-align: center;
+      padding: .75rem; border-radius: 12px; margin-bottom: 1rem; letter-spacing: .04em;
+    }
+    h1 { margin: 0 0 .75rem; font-size: 1.75rem; }
+    .line { margin: .55rem 0; line-height: 1.45; }
+    .muted { color: var(--muted); font-size: .85rem; margin-top: 1.25rem; }
+    .empty { color: var(--muted); text-align: center; padding: 2rem 1rem; }
+    a.tel { color: var(--forest); font-weight: 700; text-decoration: none; }
+    img.photo { width: 96px; height: 96px; border-radius: 48px; object-fit: cover; display:block; margin: 0 auto 1rem; }
+  </style>
+</head>
+<body>
+  <div class="brand"><div class="mark">🐾</div> Huella</div>
+  <div class="card" id="card">
+    <p class="empty">Cargando ficha…</p>
+  </div>
+  <p class="muted">Ficha pública de emergencia. No muestra microchip ni dirección completa por defecto.</p>
+  <script>
+    function b64UrlToJson(s) {
+      s = s.replace(/-/g, '+').replace(/_/g, '/');
+      while (s.length % 4) s += '=';
+      try {
+        const bin = atob(s);
+        const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+        const json = new TextDecoder().decode(bytes);
+        return JSON.parse(json);
+      } catch (e) {
+        try { return JSON.parse(decodeURIComponent(escape(atob(s)))); } catch (e2) { return null; }
+      }
+    }
+    function esc(t) {
+      return String(t || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+    const hash = location.hash || '';
+    const m = hash.match(/[#&?]p=([^&]+)/);
+    const data = m ? b64UrlToJson(decodeURIComponent(m[1])) : null;
+    const el = document.getElementById('card');
+    if (!data || !data.name) {
+      el.innerHTML = '<p class="empty">Esta ficha no tiene datos. Abre el enlace generado desde la app Huella.</p>';
+    } else {
+      el.innerHTML =
+        (data.lost ? '<div class="lost">SE BUSCA · PERRO PERDIDO</div>' : '<p class="muted" style="margin-top:0">Ficha de emergencia</p>') +
+        (data.photo ? '<img class="photo" alt="" src="' + esc(data.photo) + '" />' : '') +
+        '<h1>' + esc(data.name) + '</h1>' +
+        (data.phone ? '<p class="line">📞 Tutor: <a class="tel" href="tel:' + esc(data.phone) + '">' + esc(data.phone) + '</a></p>' : '') +
+        (data.allergies ? '<p class="line">⚠️ Alergias: ' + esc(data.allergies) + '</p>' : '') +
+        (data.meds ? '<p class="line">💊 Medicación: ' + esc(data.meds) + '</p>' : '') +
+        (data.vet ? '<p class="line">🏥 Vet: ' + esc(data.vet) + (data.vetPhone ? ' · <a class="tel" href="tel:' + esc(data.vetPhone) + '">' + esc(data.vetPhone) + '</a>' : '') + '</p>' : '') +
+        (data.city ? '<p class="line">📍 ' + esc(data.city) + '</p>' : '') +
+        '<p class="muted">Actualizado ' + esc(data.updated || '') + '</p>';
+    }
+  </script>
+</body>
+</html>
