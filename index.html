@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Huella — la cartilla de tu perro</title>
   <meta name="description" content="Huella es la app para dueños de perros en España: ficha, vacunas, medicación, gastos, veterinarios cerca y QR si se pierde. Únete a la prueba cerrada en Android." />
-  <meta name="theme-color" content="#145C38" />
+  <meta name="theme-color" content="#C85A3C" />
   <link rel="canonical" href="https://silviojuan-bit.github.io/huella-legal/" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="images/huella-icon.png" type="image/png" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta property="og:title" content="Huella — la cartilla de tu perro" />
@@ -21,6 +21,7 @@
   <meta property="og:image:alt" content="Huella, app de cuidado de perros. Prueba cerrada en Android." />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,7 +49,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">
-        <img src="favicon.svg" width="36" height="36" alt="" />
+        <img src="images/huella-icon.png" width="42" height="42" alt="" />
         <span>Huella</span>
       </a>
       <nav class="desktop-nav" aria-label="Secciones">
@@ -80,44 +81,66 @@
 
   <main id="contenido">
     <section class="hero">
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="layer" data-depth="0.08" aria-hidden="true"><span class="blob blob-a"></span></div>
+      <div class="layer" data-depth="0.18" aria-hidden="true"><span class="blob blob-b"></span></div>
+      <div class="layer" data-depth="0.04" aria-hidden="true"><span class="blob blob-c"></span></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Prueba cerrada · solo Android</p>
+          <div class="wordmark">
+            <img src="images/huella-icon.png" width="72" height="72" alt="" />
+            <p class="wordmark-name">Huella</p>
+          </div>
           <h1>La cartilla de tu perro, siempre a mano</h1>
-          <p class="lead">Ficha, vacunas, medicación, gastos y un QR por si se pierde. Huella está hecha para quienes viven con un perro en España.</p>
+          <p class="lead">Vacunas, medicación, gastos y un QR por si se pierde. Para quienes viven con un perro en España.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://play.google.com/apps/testing/com.huella.app" target="_blank" rel="noopener noreferrer">Unirme a la prueba<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <a class="btn btn-primary btn-pulse" href="https://play.google.com/apps/testing/com.huella.app" target="_blank" rel="noopener noreferrer">Unirme a la prueba<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
             <a class="btn btn-secondary" href="#funciones">Ver funciones</a>
           </div>
-          <p class="hero-note">Lanzamiento público previsto el 5 de octubre de 2026. El primer mes de <a href="#plus">Huella Plus</a> es gratis.</p>
-          <p class="hero-help"><a href="#prueba">¿No te deja unirte? Envíanos tu Gmail.</a></p>
-          <p class="disclaimer">Huella te ayuda a organizar el cuidado. No sustituye el consejo de tu veterinario.</p>
+          <p class="hero-note"><a href="#plus">Un mes de Huella Plus</a> al empezar. Lanzamiento público previsto el 5 de octubre de 2026.</p>
         </div>
-        <div class="device" aria-hidden="true">
-          <div class="device-screen">
-            <p class="device-kicker">Ejemplo · ficha</p>
-            <p class="device-name">Luna</p>
-            <p class="device-meta">Podenca · 18 kg · chip guardado</p>
-            <ul class="device-list">
-              <li><span>Vacuna</span><strong>02/10/2026</strong></li>
-              <li><span>Medicación crónica</span><strong>Hoy</strong></li>
-              <li><span>Licencia PPP</span><strong>14/03/2027</strong></li>
-              <li><span>Gasto · pienso</span><strong>12/09/2026</strong></li>
-            </ul>
-            <p class="device-flag">Modo perdido · QR listo</p>
-          </div>
+        <div class="hero-art" data-depth="0.12">
+          <img class="dogs" src="images/dogs-cutout.png" width="860" height="663" alt="Un yorkshire y un teckel, los perros de Huella" />
+          <p class="dogs-caption">Yorkshire y teckel. La app sirve para el tuyo.</p>
         </div>
       </div>
     </section>
 
-    <section id="funciones" class="section section-white">
+    <div class="phrase-strip">
+      <p class="sr-only">Huella ordena la ficha, las vacunas, la medicación, los gastos, lo que hay cerca y el QR si se pierde. Las fechas van en DD/MM/AAAA.</p>
+      <div class="phrase-track">
+        <ul>
+          <li>Ficha y cartilla</li>
+          <li>Vacunas con aviso</li>
+          <li>Medicación crónica</li>
+          <li>Gastos a mano</li>
+          <li>Cerca de ti</li>
+          <li>QR si se pierde</li>
+          <li>Fechas DD/MM/AAAA</li>
+          <li>Un mes de Plus</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>Ficha y cartilla</li>
+          <li>Vacunas con aviso</li>
+          <li>Medicación crónica</li>
+          <li>Gastos a mano</li>
+          <li>Cerca de ti</li>
+          <li>QR si se pierde</li>
+          <li>Fechas DD/MM/AAAA</li>
+          <li>Un mes de Plus</li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="funciones" class="section section-white reveal">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Funciones</p>
           <h2>Todo el cuidado, en un solo sitio</h2>
           <p class="lead">Sin tecnicismos: lo que ya haces en papel o en la cabeza, ordenado en el móvil.</p>
         </div>
-        <div class="feature-grid">
+        <div class="feature-grid stagger">
           <article class="feature-card">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg>
@@ -173,13 +196,14 @@
       </div>
     </section>
 
-    <section id="como-funciona" class="section">
+    <section id="como-funciona" class="section reveal">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Cómo funciona</p>
           <h2>Tres pasos y la cartilla queda lista</h2>
         </div>
-        <ol class="steps">
+        <div class="how-layout">
+        <ol class="steps stagger">
           <li>
             <h3>Crea la ficha</h3>
             <p>Datos del perro, foto y cartilla. Las fechas se anotan en DD/MM/AAAA.</p>
@@ -193,10 +217,25 @@
             <p>Recordatorios en el móvil y un QR por si se pierde. «Cerca de ti» te indica cómo llegar al veterinario o a una protectora.</p>
           </li>
         </ol>
+        <div class="device" aria-hidden="true">
+          <div class="device-screen">
+            <p class="device-kicker">Ejemplo · ficha</p>
+            <p class="device-name">Luna</p>
+            <p class="device-meta">Podenca · 18 kg</p>
+            <ul class="device-list">
+              <li><span>Vacuna</span><strong>02/10/2026</strong></li>
+              <li><span>Medicación crónica</span><strong>Hoy</strong></li>
+              <li><span>Licencia PPP</span><strong>14/03/2027</strong></li>
+              <li><span>Gasto · pienso</span><strong>12/09/2026</strong></li>
+            </ul>
+            <p class="device-flag">Modo perdido · QR listo</p>
+          </div>
+        </div>
+        </div>
       </div>
     </section>
 
-    <section id="prueba" class="band-forest">
+    <section id="prueba" class="band-forest reveal">
       <div class="wrap">
         <p class="eyebrow">Google Play</p>
         <h2>Únete a la prueba cerrada</h2>
@@ -244,7 +283,7 @@
       </div>
     </section>
 
-    <section id="plus" class="section">
+    <section id="plus" class="section reveal">
       <div class="wrap plus-grid">
         <div class="plus-copy">
           <p class="eyebrow">Huella Plus</p>
@@ -264,7 +303,7 @@
       </div>
     </section>
 
-    <section id="faq" class="section section-white">
+    <section id="faq" class="section section-white reveal">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Preguntas frecuentes</p>
@@ -311,7 +350,7 @@
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div class="footer-col">
-        <p class="footer-brand">Huella</p>
+        <p class="footer-brand"><img src="images/huella-icon.png" width="40" height="40" alt="" /> Huella</p>
         <p>App de cuidado de perros para dueños en España.</p>
         <p>No sustituye el consejo de un veterinario.</p>
       </div>
@@ -358,6 +397,40 @@
           if (menu) menu.open = false;
         });
       });
+
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var reveals = document.querySelectorAll(".reveal");
+      if (reduce || !("IntersectionObserver" in window)) {
+        reveals.forEach(function (el) { el.classList.add("is-in"); });
+      } else {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-in");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
+        reveals.forEach(function (el) { observer.observe(el); });
+      }
+
+      var hero = document.querySelector(".hero");
+      var layers = hero ? hero.querySelectorAll("[data-depth]") : [];
+      if (!reduce && hero && layers.length) {
+        var ticking = false;
+        var paint = function () {
+          var y = Math.min(window.scrollY, hero.offsetHeight);
+          layers.forEach(function (el) {
+            var depth = parseFloat(el.getAttribute("data-depth")) || 0;
+            el.style.transform = "translate3d(0," + (y * depth) + "px,0)";
+          });
+          ticking = false;
+        };
+        window.addEventListener("scroll", function () {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(paint);
+        }, { passive: true });
+      }
     })();
   </script>
 </body>
