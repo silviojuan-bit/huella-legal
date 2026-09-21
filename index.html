@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Huella — la cartilla de tu perro</title>
   <meta name="description" content="Huella es la app para dueños de perros en España: ficha, vacunas, medicación, gastos, veterinarios cerca y QR si se pierde. Únete a la prueba cerrada en Android." />
-  <meta name="theme-color" content="#145C38" />
+  <meta name="theme-color" content="#C85A3C" />
   <link rel="canonical" href="https://silviojuan-bit.github.io/huella-legal/" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="images/huella-icon.png" type="image/png" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta property="og:title" content="Huella — la cartilla de tu perro" />
@@ -48,7 +48,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">
-        <img src="favicon.svg" width="36" height="36" alt="" />
+        <img src="images/huella-icon.png" width="42" height="42" alt="" />
         <span>Huella</span>
       </a>
       <nav class="desktop-nav" aria-label="Secciones">
@@ -80,20 +80,32 @@
 
   <main id="contenido">
     <section class="hero">
+      <div class="blob blob-a" aria-hidden="true"></div>
+      <div class="blob blob-b" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Prueba cerrada · solo Android</p>
-          <h1>La cartilla de tu perro, siempre a mano</h1>
+          <div class="wordmark">
+            <img src="images/huella-icon.png" width="84" height="84" alt="" />
+            <div>
+              <p class="eyebrow">Prueba cerrada · solo Android</p>
+              <h1>
+                <span class="wordmark-name">Huella</span>
+                <span class="hero-tagline">La cartilla de tu perro, siempre a mano</span>
+              </h1>
+            </div>
+          </div>
           <p class="lead">Ficha, vacunas, medicación, gastos y un QR por si se pierde. Huella está hecha para quienes viven con un perro en España.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://play.google.com/apps/testing/com.huella.app" target="_blank" rel="noopener noreferrer">Unirme a la prueba<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <a class="btn btn-primary btn-pulse" href="https://play.google.com/apps/testing/com.huella.app" target="_blank" rel="noopener noreferrer">Unirme a la prueba<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
             <a class="btn btn-secondary" href="#funciones">Ver funciones</a>
           </div>
           <p class="hero-note">Lanzamiento público previsto el 5 de octubre de 2026. El primer mes de <a href="#plus">Huella Plus</a> es gratis.</p>
           <p class="hero-help"><a href="#prueba">¿No te deja unirte? Envíanos tu Gmail.</a></p>
           <p class="disclaimer">Huella te ayuda a organizar el cuidado. No sustituye el consejo de tu veterinario.</p>
         </div>
-        <div class="device" aria-hidden="true">
+        <div class="hero-art">
+          <img class="dogs" src="images/dogs-cutout.png" width="860" height="663" alt="Un yorkshire y un teckel, los perros de Huella" />
+          <div class="device" aria-hidden="true">
           <div class="device-screen">
             <p class="device-kicker">Ejemplo · ficha</p>
             <p class="device-name">Luna</p>
@@ -107,10 +119,24 @@
             <p class="device-flag">Modo perdido · QR listo</p>
           </div>
         </div>
+        </div>
       </div>
     </section>
 
-    <section id="funciones" class="section section-white">
+    <section class="section reveal" aria-labelledby="mascotas-titulo">
+      <div class="wrap mascot-grid">
+        <figure class="mascot-frame">
+          <img src="images/dogs-opaque.png" width="1100" height="916" alt="El yorkshire y el teckel de Huella, sentados juntos" />
+        </figure>
+        <div>
+          <p class="eyebrow">Los de casa</p>
+          <h2 id="mascotas-titulo">Un yorkshire y un teckel</h2>
+          <p class="lead">Son los dos perros con los que nace Huella. La app vale igual para el tuyo: la ficha, las vacunas, la medicación y lo que no quieres olvidar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="funciones" class="section section-white reveal">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Funciones</p>
@@ -173,7 +199,7 @@
       </div>
     </section>
 
-    <section id="como-funciona" class="section">
+    <section id="como-funciona" class="section reveal">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Cómo funciona</p>
@@ -196,7 +222,7 @@
       </div>
     </section>
 
-    <section id="prueba" class="band-forest">
+    <section id="prueba" class="band-forest reveal">
       <div class="wrap">
         <p class="eyebrow">Google Play</p>
         <h2>Únete a la prueba cerrada</h2>
@@ -244,7 +270,7 @@
       </div>
     </section>
 
-    <section id="plus" class="section">
+    <section id="plus" class="section reveal">
       <div class="wrap plus-grid">
         <div class="plus-copy">
           <p class="eyebrow">Huella Plus</p>
@@ -264,7 +290,7 @@
       </div>
     </section>
 
-    <section id="faq" class="section section-white">
+    <section id="faq" class="section section-white reveal">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Preguntas frecuentes</p>
@@ -311,7 +337,7 @@
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div class="footer-col">
-        <p class="footer-brand">Huella</p>
+        <p class="footer-brand"><img src="images/huella-icon.png" width="40" height="40" alt="" /> Huella</p>
         <p>App de cuidado de perros para dueños en España.</p>
         <p>No sustituye el consejo de un veterinario.</p>
       </div>

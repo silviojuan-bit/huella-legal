@@ -6,7 +6,8 @@ Web oficial de Huella, la app de cuidado de perros para dueños en España. Es u
 
 | Archivo | Contenido |
 |---------|-----------|
-| `index.html` | Portada: funciones, prueba cerrada y Huella Plus |
+| `index.html` | Portada: logo, los dos perros, funciones, prueba cerrada y Huella Plus |
+| `images/` | Logo de la app y la ilustración del yorkshire y el teckel |
 | `privacidad.html` | Política de privacidad |
 | `terminos.html` | Términos de uso |
 | `seguridad-infantil.html` | Estándares de seguridad infantil |
