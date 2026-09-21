@@ -653,6 +653,61 @@ body.home .hero h1 {
 
 .section-white { background: var(--white); }
 
+#funciones {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f9f7f2;
+}
+
+.funciones-bg,
+.funciones-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.funciones-bg {
+  z-index: 0;
+  overflow: hidden;
+  background: #f9f7f2 url("media/funciones-poster.png") center / cover no-repeat;
+}
+
+.funciones-video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 124%;
+  height: 124%;
+  object-fit: cover;
+  transform: translate(-50%, -50%) scale(1);
+  animation: funciones-ken 26s ease-in-out infinite alternate;
+}
+
+.funciones-veil {
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 70% 46% at 100% 0%, rgba(200, 90, 60, 0.24), transparent 56%),
+    radial-gradient(ellipse 52% 40% at 0% 100%, rgba(200, 90, 60, 0.16), transparent 50%),
+    linear-gradient(
+      180deg,
+      rgba(249, 247, 242, 0.86) 0%,
+      rgba(249, 247, 242, 0.68) 15%,
+      rgba(249, 247, 242, 0.4) 42%,
+      rgba(249, 247, 242, 0.55) 100%
+    );
+}
+
+#funciones .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes funciones-ken {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to { transform: translate(-50%, -50%) scale(1.08); }
+}
+
 .feature-grid {
   display: grid;
   gap: 0.85rem;
@@ -669,6 +724,47 @@ body.home .hero h1 {
 }
 
 .section-white .feature-card { background: var(--paper); }
+
+#funciones .feature-card {
+  background: rgba(255, 252, 248, 0.82);
+  border-color: rgba(255, 252, 248, 0.9);
+  box-shadow:
+    0 16px 36px rgba(28, 28, 28, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px) saturate(1.25);
+  -webkit-backdrop-filter: blur(16px) saturate(1.25);
+}
+
+#funciones .feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 22px 44px rgba(200, 90, 60, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.js #funciones .stagger > * {
+  translate: 0 36px;
+  scale: 0.94;
+  transition:
+    opacity 0.85s ease,
+    translate 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    scale 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.js #funciones.reveal.is-in .stagger > * {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+.js #funciones.reveal.is-in .stagger > *:nth-child(2) { transition-delay: 0.1s, 0.1s, 0.1s, 0s, 0s; }
+.js #funciones.reveal.is-in .stagger > *:nth-child(3) { transition-delay: 0.2s, 0.2s, 0.2s, 0s, 0s; }
+.js #funciones.reveal.is-in .stagger > *:nth-child(4) { transition-delay: 0.3s, 0.3s, 0.3s, 0s, 0s; }
+.js #funciones.reveal.is-in .stagger > *:nth-child(5) { transition-delay: 0.4s, 0.4s, 0.4s, 0s, 0s; }
+.js #funciones.reveal.is-in .stagger > *:nth-child(6) { transition-delay: 0.5s, 0.5s, 0.5s, 0s, 0s; }
+.js #funciones.reveal.is-in .stagger > *:nth-child(7) { transition-delay: 0.6s, 0.6s, 0.6s, 0s, 0s; }
 
 .feature-card h3 {
   margin: 0;
@@ -1118,7 +1214,9 @@ body.legal .card {
   .js .stagger > * {
     opacity: 1;
     translate: 0 0;
+    scale: 1;
   }
+  .funciones-video { display: none !important; }
 }
 
 @media print {
@@ -1126,7 +1224,10 @@ body.legal .card {
   .skip,
   .hero-actions,
   .test-actions,
-  .menu { display: none !important; }
+  .menu,
+  .funciones-bg,
+  .funciones-veil { display: none !important; }
+  #funciones { background: #fff; }
   body,
   .band-forest,
   .site-footer {
