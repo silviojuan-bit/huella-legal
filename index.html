@@ -134,6 +134,13 @@
     </div>
 
     <section id="funciones" class="section section-white reveal">
+      <div class="funciones-bg" aria-hidden="true">
+        <video class="funciones-video" autoplay muted loop playsinline poster="media/huella-reel-poster.jpg" preload="auto" tabindex="-1">
+          <source src="media/huella-reel-bg.mp4" type="video/mp4" />
+          <source src="media/huella-reel-bg.webm" type="video/webm" />
+        </video>
+      </div>
+      <div class="funciones-veil" aria-hidden="true"></div>
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Funciones</p>
@@ -398,7 +405,26 @@
         });
       });
 
-      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var reduce = motionQuery.matches;
+      var funcionesVideo = document.querySelector("#funciones .funciones-video");
+      var syncFuncionesVideo = function (reducedMotion) {
+        if (!funcionesVideo) return;
+        if (reducedMotion) {
+          funcionesVideo.pause();
+          funcionesVideo.removeAttribute("autoplay");
+          return;
+        }
+        funcionesVideo.setAttribute("autoplay", "");
+        var playPromise = funcionesVideo.play();
+        if (playPromise && playPromise.catch) playPromise.catch(function () {});
+      };
+      syncFuncionesVideo(reduce);
+      if (motionQuery.addEventListener) {
+        motionQuery.addEventListener("change", function () {
+          syncFuncionesVideo(motionQuery.matches);
+        });
+      }
       var reveals = document.querySelectorAll(".reveal");
       if (reduce || !("IntersectionObserver" in window)) {
         reveals.forEach(function (el) { el.classList.add("is-in"); });
