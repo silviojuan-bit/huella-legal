@@ -3,173 +3,362 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Información legal de Huella: privacidad, términos y estándares de seguridad infantil." />
-  <title>Huella — Información legal</title>
-  <style>
-    :root {
-      --cream: #F9F7F2;
-      --terracotta: #C85A3C;
-      --terracotta-dark: #A84830;
-      --peach: #F5E0D0;
-      --peach-soft: #FBEFE6;
-      --text: #1C1C1C;
-      --text-secondary: #6B6B6B;
-      --border: #E8E4DC;
-      --white: #FFFFFF;
+  <title>Huella — la cartilla de tu perro</title>
+  <meta name="description" content="Huella es la app para dueños de perros en España: ficha, vacunas, medicación, gastos, veterinarios cerca y QR si se pierde. Únete a la prueba cerrada en Android." />
+  <meta name="theme-color" content="#145C38" />
+  <link rel="canonical" href="https://silviojuan-bit.github.io/huella-legal/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:title" content="Huella — la cartilla de tu perro" />
+  <meta property="og:description" content="Ficha, vacunas, medicación, gastos y QR si se pierde. Prueba cerrada en Android para dueños de perros en España." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:url" content="https://silviojuan-bit.github.io/huella-legal/" />
+  <meta property="og:image" content="https://silviojuan-bit.github.io/huella-legal/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Huella, app de cuidado de perros. Prueba cerrada en Android." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Huella",
+    "operatingSystem": "Android",
+    "applicationCategory": "LifestyleApplication",
+    "inLanguage": "es",
+    "countriesSupported": "ES",
+    "identifier": "com.huella.app",
+    "description": "App para dueños de perros en España: ficha y cartilla, vacunas, medicación, gastos, veterinarios y protectoras cerca, y QR de modo perdido.",
+    "installUrl": "https://play.google.com/apps/testing/com.huella.app",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.huella.app",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": "Plan gratuito. Quien empieza tiene un mes de Huella Plus de prueba."
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.65;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 1.25rem 1.5rem;
-    }
-    .header-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: var(--terracotta);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-    .brand-name {
-      font-weight: 700;
-      font-size: 1.25rem;
-    }
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 3rem;
-      flex: 1;
-      width: 100%;
-    }
-    h1 {
-      font-size: 1.85rem;
-      line-height: 1.25;
-      margin-bottom: 0.75rem;
-    }
-    .lead {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-    }
-    .cards {
-      display: grid;
-      gap: 1rem;
-    }
-    .card {
-      display: block;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.35rem 1.4rem;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-    .card:hover {
-      border-color: var(--terracotta);
-      box-shadow: 0 4px 16px rgba(200, 90, 60, 0.12);
-    }
-    .card h2 {
-      font-size: 1.15rem;
-      color: var(--terracotta-dark);
-      margin-bottom: 0.4rem;
-    }
-    .card p {
-      color: var(--text-secondary);
-      font-size: 0.98rem;
-    }
-    .card .arrow {
-      display: inline-block;
-      margin-top: 0.75rem;
-      color: var(--terracotta);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-    .note {
-      margin-top: 2rem;
-      background: var(--peach-soft);
-      border: 1px solid var(--peach);
-      border-radius: 12px;
-      padding: 1rem 1.15rem;
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-    footer {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 1.5rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      text-align: center;
-      width: 100%;
-    }
-    @media (max-width: 480px) {
-      h1 { font-size: 1.5rem; }
-      main { padding: 1.75rem 1.15rem 2.5rem; }
-    }
-  </style>
+  }
+  </script>
 </head>
-<body>
-  <header>
-    <div class="header-inner">
-      <span class="brand-mark" aria-hidden="true">🐾</span>
-      <span class="brand-name">Huella</span>
+<body class="home">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <img src="favicon.svg" width="36" height="36" alt="" />
+        <span>Huella</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Secciones">
+        <a href="#funciones">Funciones</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#prueba">Prueba cerrada</a>
+        <a href="#plus">Plus</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-primary btn-small" href="https://play.google.com/apps/testing/com.huella.app" target="_blank" rel="noopener noreferrer">Unirme<span class="sr-only"> a la prueba (se abre en una pestaña nueva)</span></a>
+        <details class="menu">
+          <summary>Menú</summary>
+          <div class="menu-panel">
+            <a href="#funciones">Funciones</a>
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#prueba">Prueba cerrada</a>
+            <a href="#plus">Plus</a>
+            <a href="#faq">Preguntas</a>
+            <a href="privacidad.html">Privacidad</a>
+            <a href="terminos.html">Términos</a>
+            <a href="seguridad-infantil.html">Seguridad infantil</a>
+            <a href="eliminar-datos.html">Eliminar datos</a>
+          </div>
+        </details>
+      </div>
     </div>
   </header>
 
-  <main>
-    <h1>Información legal</h1>
-    <p class="lead">
-      Documentos oficiales de la app Huella para el cuidado de perros.
-      Puedes abrirlos desde el móvil o el ordenador; no hace falta instalar nada.
-    </p>
+  <main id="contenido">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Prueba cerrada · solo Android</p>
+          <h1>La cartilla de tu perro, siempre a mano</h1>
+          <p class="lead">Ficha, vacunas, medicación, gastos y un QR por si se pierde. Huella está hecha para quienes viven con un perro en España.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://play.google.com/apps/testing/com.huella.app" target="_blank" rel="noopener noreferrer">Unirme a la prueba<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <a class="btn btn-secondary" href="#funciones">Ver funciones</a>
+          </div>
+          <p class="hero-note">Lanzamiento público previsto el 5 de octubre de 2026. El primer mes de <a href="#plus">Huella Plus</a> es gratis.</p>
+          <p class="hero-help"><a href="#prueba">¿No te deja unirte? Envíanos tu Gmail.</a></p>
+          <p class="disclaimer">Huella te ayuda a organizar el cuidado. No sustituye el consejo de tu veterinario.</p>
+        </div>
+        <div class="device" aria-hidden="true">
+          <div class="device-screen">
+            <p class="device-kicker">Ejemplo · ficha</p>
+            <p class="device-name">Luna</p>
+            <p class="device-meta">Podenca · 18 kg · chip guardado</p>
+            <ul class="device-list">
+              <li><span>Vacuna</span><strong>02/10/2026</strong></li>
+              <li><span>Medicación crónica</span><strong>Hoy</strong></li>
+              <li><span>Licencia PPP</span><strong>14/03/2027</strong></li>
+              <li><span>Gasto · pienso</span><strong>12/09/2026</strong></li>
+            </ul>
+            <p class="device-flag">Modo perdido · QR listo</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="cards">
-      <a class="card" href="privacidad.html">
-        <h2>Política de privacidad</h2>
-        <p>Cómo tratamos los datos, permisos del teléfono y tus derechos.</p>
-        <span class="arrow">Leer →</span>
-      </a>
-      <a class="card" href="terminos.html">
-        <h2>Términos de uso</h2>
-        <p>Condiciones de uso de la app, la tienda y Huella Plus.</p>
-        <span class="arrow">Leer →</span>
-      </a>
+    <section id="funciones" class="section section-white">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Funciones</p>
+          <h2>Todo el cuidado, en un solo sitio</h2>
+          <p class="lead">Sin tecnicismos: lo que ya haces en papel o en la cabeza, ordenado en el móvil.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg>
+            </span>
+            <h3>Ficha y cartilla</h3>
+            <p>Nombre, raza, peso, chip, foto y la cartilla digital de tu perro, juntas.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5h12l-1.2-2V10a4.8 4.8 0 0 0-9.6 0v4.5L6 16.5z"/><path d="M10 16.5a2 2 0 0 0 4 0"/></svg>
+            </span>
+            <h3>Vacunas y medicación</h3>
+            <p>Apunta vacunas y la medicación temporal o crónica. Huella te avisa para que no se te pase.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.5" width="17" height="12" rx="2"/><path d="M3.5 10.5h17"/><circle cx="16" cy="14.2" r="1" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>Gastos</h3>
+            <p>Anota lo que gastas en tu perro y tenlo a mano cuando lo necesites.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.1"/></svg>
+            </span>
+            <h3>Cerca de ti</h3>
+            <p>Veterinarios y protectoras próximos, con indicaciones para llegar.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="6.2" height="6.2" rx="1"/><rect x="13.8" y="4" width="6.2" height="6.2" rx="1"/><rect x="4" y="13.8" width="6.2" height="6.2" rx="1"/><rect x="13.8" y="13.8" width="2.3" height="2.3"/><rect x="17.7" y="13.8" width="2.3" height="2.3"/><rect x="13.8" y="17.7" width="2.3" height="2.3"/><rect x="17.7" y="17.7" width="2.3" height="2.3"/></svg>
+            </span>
+            <h3>QR y modo perdido</h3>
+            <p>Un código para que, si se pierde, quien lo encuentre vea una ficha de emergencia.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9.5" r="5.2"/><path d="M9.2 14.2 8.2 20.5 12 18.4l3.8 2.1-1-6.3"/></svg>
+            </span>
+            <h3>Licencia PPP</h3>
+            <p>Si tu perro es potencialmente peligroso, guarda la licencia y mira cuándo caduca.</p>
+          </article>
+          <article class="feature-card wide">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3.5v4M16 3.5v4M4 10h16"/></svg>
+            </span>
+            <div>
+              <h3>Fechas en DD/MM/AAAA</h3>
+              <p>Día, mes y año, como se escribe en España. Por ejemplo, 05/10/2026.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Cómo funciona</p>
+          <h2>Tres pasos y la cartilla queda lista</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Crea la ficha</h3>
+            <p>Datos del perro, foto y cartilla. Las fechas se anotan en DD/MM/AAAA.</p>
+          </li>
+          <li>
+            <h3>Anota y activa avisos</h3>
+            <p>Vacunas, medicación temporal o crónica, gastos y la licencia PPP si la necesita.</p>
+          </li>
+          <li>
+            <h3>Llévala contigo</h3>
+            <p>Recordatorios en el móvil y un QR por si se pierde. «Cerca de ti» te indica cómo llegar al veterinario o a una protectora.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="prueba" class="band-forest">
+      <div class="wrap">
+        <p class="eyebrow">Google Play</p>
+        <h2>Únete a la prueba cerrada</h2>
+        <p class="lead">Huella ya se puede probar en Android. El lanzamiento público está previsto alrededor del 5 de octubre de 2026. Si quieres usarla antes, sigue estos pasos.</p>
+        <ol class="test-steps">
+          <li>
+            <h3>Acepta la invitación</h3>
+            <p class="step-copy">Abre el enlace, entra con la cuenta de Google con la que usas Play Store y acepta ser tester.</p>
+            <div class="test-actions">
+              <a class="btn btn-light" href="https://play.google.com/apps/testing/com.huella.app" target="_blank" rel="noopener noreferrer">Unirme a la prueba<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
+          </li>
+          <li>
+            <h3>Instala Huella</h3>
+            <p class="step-copy">Cuando Google te reconozca, instala la app desde su ficha. De momento no hay versión para iPhone. Si Play dice que no está disponible, vuelve al paso anterior: hasta que no aceptes, no deja instalar.</p>
+            <div class="test-actions">
+              <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.huella.app" target="_blank" rel="noopener noreferrer">Instalar en Google Play<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
+          </li>
+          <li>
+            <h3>Quédate al menos 14 días</h3>
+            <p class="step-copy">No abandones el programa de prueba antes de 14 días. En ese tiempo no pulses «Abandonar el programa». Puedes usar la app con normalidad: no hace falta abrirla cada día.</p>
+          </li>
+          <li>
+            <h3>Si tu cuenta no está en la lista</h3>
+            <p class="step-copy">A veces Google no muestra la prueba porque tu Gmail aún no está apuntado. Envíanos tu nombre y el correo de esa cuenta. Silvio lo revisa y te contesta. El mensaje se abre en tu app de correo: este formulario no se guarda en ningún servidor.</p>
+            <form id="tester-form" class="mail-card" action="mailto:silviojuan@gmail.com" method="post" enctype="text/plain">
+              <p class="mail-title">Escribir a Silvio</p>
+              <input type="hidden" name="Mensaje" value="Quiero unirme a la prueba cerrada de Huella." />
+              <div class="field">
+                <label for="nombre">Tu nombre</label>
+                <input id="nombre" name="Nombre" type="text" autocomplete="name" required maxlength="80" />
+              </div>
+              <div class="field">
+                <label for="gmail">Gmail de tu cuenta de Google Play</label>
+                <input id="gmail" name="Gmail" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="tunombre@gmail.com" />
+              </div>
+              <p class="form-note">Tiene que ser la cuenta con la que abres Play Store. Casi siempre es un @gmail.com.</p>
+              <button class="btn btn-primary" type="submit">Enviar nombre y Gmail</button>
+              <p id="tester-status" role="status" aria-live="polite"></p>
+              <p class="form-fallback">Si no se abre el correo, escribe a <a href="mailto:silviojuan@gmail.com?subject=Huella%20%E2%80%94%20quiero%20unirme%20a%20la%20prueba%20cerrada&amp;body=Hola%20Silvio%2C%0A%0AQuiero%20unirme%20a%20la%20prueba%20cerrada%20de%20Huella.%0A%0ANombre%3A%0AGmail%20de%20Google%20Play%3A%0A">silviojuan@gmail.com</a> con tu nombre y tu Gmail.</p>
+            </form>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="plus" class="section">
+      <div class="wrap plus-grid">
+        <div class="plus-copy">
+          <p class="eyebrow">Huella Plus</p>
+          <h2>Un mes de prueba y, después, el plan gratuito</h2>
+          <p class="lead">Quien empieza tiene un mes de Huella Plus gratis. Cuando acaba, la app sigue en el plan gratuito salvo que te suscribas.</p>
+          <p class="disclaimer">Plus es opcional. Con o sin suscripción, Huella no sustituye a tu veterinario.</p>
+        </div>
+        <div class="plus-card">
+          <p class="plus-kicker">Para quien empieza</p>
+          <p class="plus-offer">1 mes</p>
+          <p class="plus-offer-label">de Huella Plus, de prueba</p>
+          <ul>
+            <li>Al terminar el mes, sigues con el plan gratuito.</li>
+            <li>Plus continúa solo si decides suscribirte.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-white">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de instalar</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>¿Puedo usar Huella en el iPhone?</summary>
+            <p>Ahora mismo no. La prueba cerrada y el lanzamiento de octubre son solo para Android.</p>
+          </details>
+          <details>
+            <summary>¿Cómo me uno a la prueba?</summary>
+            <p>Entra en el enlace de testers, acepta la invitación con tu cuenta de Google Play e instala Huella. Tienes el detalle en la sección <a href="#prueba">Prueba cerrada</a>.</p>
+          </details>
+          <details>
+            <summary>¿Por qué hay que seguir apuntado 14 días?</summary>
+            <p>Google lo pide en esta prueba. Durante esos días no abandones el programa. Puedes usar la app con normalidad; no hace falta abrirla cada día.</p>
+          </details>
+          <details>
+            <summary>¿Y si Google no me deja entrar?</summary>
+            <p>Puede que tu cuenta aún no esté en la lista. Envíanos tu nombre y el Gmail con el que usas Play Store a <a href="mailto:silviojuan@gmail.com">silviojuan@gmail.com</a> y lo revisamos.</p>
+          </details>
+          <details>
+            <summary>¿Cuándo estará disponible para todo el mundo?</summary>
+            <p>El lanzamiento público está previsto alrededor del 5 de octubre de 2026.</p>
+          </details>
+          <details>
+            <summary>¿Hay que pagar?</summary>
+            <p>Quien empieza tiene un mes de Huella Plus de prueba. Después sigue el plan gratuito, salvo que te suscribas a Plus.</p>
+          </details>
+          <details>
+            <summary>¿Huella sustituye a mi veterinario?</summary>
+            <p>No. Sirve para anotar y recordar vacunas, medicación y lo que tú registres. Las decisiones de salud las toma tu veterinario.</p>
+          </details>
+          <details>
+            <summary>¿Cómo se escriben las fechas? ¿Y mis datos?</summary>
+            <p>Las fechas van en día, mes y año: DD/MM/AAAA. En la versión actual, la mayor parte de la información se guarda en tu teléfono. Más detalle en la <a href="privacidad.html">política de privacidad</a> y en <a href="eliminar-datos.html">eliminar datos</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-col">
+        <p class="footer-brand">Huella</p>
+        <p>App de cuidado de perros para dueños en España.</p>
+        <p>No sustituye el consejo de un veterinario.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Contacto</p>
+        <a href="mailto:silviojuan@gmail.com">silviojuan@gmail.com</a>
+        <a href="https://www.instagram.com/apphuella2026/" target="_blank" rel="noopener noreferrer">Instagram @apphuella2026<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+        <a href="index.html#prueba">Unirme a la prueba cerrada</a>
+      </div>
+      <nav class="footer-col" aria-label="Información legal">
+        <p class="footer-label">Legal</p>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="seguridad-infantil.html">Seguridad infantil</a>
+        <a href="eliminar-datos.html">Eliminar datos</a>
+      </nav>
     </div>
-
-    <p class="note">
-      Estas páginas están publicadas para enlazarlas en App Store y Google Play.
-    </p>
-  
-      <a class="card" href="eliminar-datos.html">
-        <h2>Eliminar datos</h2>
-        <p>Cómo borrar o solicitar la eliminación de tus datos en Huella.</p>
-      </a>
-</main>
-
-  <footer>
-    <p>© 2026 Huella</p>
+    <div class="wrap footer-base">
+      <p>© 2026 Huella · com.huella.app</p>
+    </div>
   </footer>
+  <script>
+    (function () {
+      var form = document.getElementById("tester-form");
+      if (form) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var nombre = (form.elements.Nombre.value || "").trim();
+          var gmail = (form.elements.Gmail.value || "").trim();
+          var status = document.getElementById("tester-status");
+          if (!nombre || !gmail) {
+            status.textContent = "Escribe tu nombre y el Gmail para preparar el correo.";
+            return;
+          }
+          var subject = "Huella — quiero unirme a la prueba cerrada";
+          var body = "Hola Silvio,\n\nQuiero unirme a la prueba cerrada de Huella.\n\nNombre: " + nombre + "\nGmail de Google Play: " + gmail + "\n\nGracias.";
+          window.location.href = "mailto:silviojuan@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+          status.textContent = "Si tu app de correo no se abre, escribe a silviojuan@gmail.com con tu nombre y tu Gmail.";
+        });
+      }
+      document.querySelectorAll(".menu-panel a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          var menu = link.closest("details");
+          if (menu) menu.open = false;
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
