@@ -670,7 +670,7 @@ body.home .hero h1 {
 .funciones-bg {
   z-index: 0;
   overflow: hidden;
-  background: #f9f7f2 url("media/funciones-poster.png") center / cover no-repeat;
+  background: #f9f7f2 url("media/huella-reel-poster.jpg") center / cover no-repeat;
 }
 
 .funciones-video {
@@ -680,6 +680,7 @@ body.home .hero h1 {
   width: 124%;
   height: 124%;
   object-fit: cover;
+  object-position: center center;
   transform: translate(-50%, -50%) scale(1);
   animation: funciones-ken 26s ease-in-out infinite alternate;
 }
@@ -691,10 +692,10 @@ body.home .hero h1 {
     radial-gradient(ellipse 46% 34% at 0% 100%, rgba(200, 90, 60, 0.16), transparent 58%),
     linear-gradient(
       180deg,
-      rgba(249, 247, 242, 0.34) 0%,
-      rgba(249, 247, 242, 0.12) 24%,
-      rgba(249, 247, 242, 0.08) 58%,
-      rgba(249, 247, 242, 0.2) 100%
+      rgba(249, 247, 242, 0.5) 0%,
+      rgba(249, 247, 242, 0.2) 18%,
+      rgba(249, 247, 242, 0.12) 52%,
+      rgba(249, 247, 242, 0.24) 100%
     );
 }
 
@@ -709,7 +710,7 @@ body.home .hero h1 {
   margin-bottom: 1.65rem;
   padding: 0.85rem 1.15rem 1rem;
   border-radius: 22px;
-  background: rgba(249, 247, 242, 0.8);
+  background: rgba(249, 247, 242, 0.88);
   border: 1px solid rgba(255, 252, 248, 0.72);
   box-shadow: 0 12px 30px rgba(28, 28, 28, 0.06);
   backdrop-filter: blur(14px) saturate(1.15);
@@ -743,7 +744,7 @@ body.home .hero h1 {
 }
 
 #funciones .feature-card {
-  background: rgba(255, 252, 248, 0.76);
+  background: rgba(255, 252, 248, 0.88);
   border-color: rgba(255, 252, 248, 0.82);
   box-shadow:
     0 16px 36px rgba(28, 28, 28, 0.08),
