@@ -38,7 +38,14 @@
     .muted { color: var(--muted); font-size: .85rem; margin-top: 1.25rem; }
     .empty { color: var(--muted); text-align: center; padding: 2rem 1rem; }
     a.tel { color: var(--forest); font-weight: 700; text-decoration: none; }
-    img.photo { width: 96px; height: 96px; border-radius: 48px; object-fit: cover; display:block; margin: 0 auto 1rem; }
+    img.photo, .photo-fallback {
+      width: 96px; height: 96px; border-radius: 48px; display: block; margin: 0 auto 1rem;
+      border: 3px solid var(--terracotta); background: #FBEFE6; object-fit: cover;
+    }
+    .photo-fallback {
+      display: flex; align-items: center; justify-content: center;
+      color: var(--terracotta); font-size: 2.1rem; line-height: 1;
+    }
   </style>
 </head>
 <body>
@@ -63,6 +70,38 @@
     function esc(t) {
       return String(t || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
     }
+    function speciesCopy(species) {
+      var s = String(species == null ? '' : species).trim().toLowerCase();
+      if (s === 'gato' || s === 'gata' || s === 'cat' || s === 'felino' || s === 'felina') return 'gato';
+      if (s === 'perro' || s === 'perra' || s === 'dog' || s === 'canino' || s === 'canina') return 'perro';
+      return 'mascota';
+    }
+    function looksLikePhone(value) {
+      var t = String(value || '').trim();
+      if (!t) return false;
+      return t.replace(/\D/g, '').length >= 6 && /^[\d\s().+\-]+$/.test(t);
+    }
+    function contactHtml(data) {
+      var name = String(data.ownerName || '').trim();
+      var phone = String(data.phone || '').trim();
+      var nameIsPhone = looksLikePhone(name);
+      var tutor = name && !nameIsPhone ? name : '';
+      var tel = phone || (nameIsPhone ? name : '');
+      var html = '';
+      if (tutor) html += '<p class="line">Tutor: ' + esc(tutor) + '</p>';
+      if (tel) html += '<p class="line">Teléfono: <a class="tel" href="tel:' + esc(tel) + '">' + esc(tel) + '</a></p>';
+      return html;
+    }
+    function lostBanner(species) {
+      var copy = speciesCopy(species);
+      var phrase = copy === 'mascota' ? 'MASCOTA PERDIDA' : copy.toUpperCase() + ' PERDIDO';
+      return 'SE BUSCA · ' + phrase;
+    }
+    function photoHtml(src) {
+      var fallback = '<div class="photo-fallback" aria-hidden="true">🐾</div>';
+      if (!src) return fallback;
+      return '<img class="photo" alt="" src="' + esc(src) + '" onerror="this.outerHTML=\'<div class=photo-fallback aria-hidden=true>🐾</div>\'" />';
+    }
     const hash = location.hash || '';
     const m = hash.match(/[#&?]p=([^&]+)/);
     const data = m ? b64UrlToJson(decodeURIComponent(m[1])) : null;
@@ -71,10 +110,10 @@
       el.innerHTML = '<p class="empty">Esta ficha no tiene datos. Abre el enlace generado desde la app Huella.</p>';
     } else {
       el.innerHTML =
-        (data.lost ? '<div class="lost">SE BUSCA · PERRO PERDIDO</div>' : '<p class="muted" style="margin-top:0">Ficha de emergencia</p>') +
-        (data.photo ? '<img class="photo" alt="" src="' + esc(data.photo) + '" />' : '') +
+        (data.lost ? '<div class="lost">' + lostBanner(data.species) + '</div>' : '<p class="muted" style="margin-top:0">Ficha de emergencia</p>') +
+        photoHtml(data.photo) +
         '<h1>' + esc(data.name) + '</h1>' +
-        (data.phone ? '<p class="line">📞 Tutor: <a class="tel" href="tel:' + esc(data.phone) + '">' + esc(data.phone) + '</a></p>' : '') +
+        contactHtml(data) +
         (data.allergies ? '<p class="line">⚠️ Alergias: ' + esc(data.allergies) + '</p>' : '') +
         (data.meds ? '<p class="line">💊 Medicación: ' + esc(data.meds) + '</p>' : '') +
         (data.vet ? '<p class="line">🏥 Vet: ' + esc(data.vet) + (data.vetPhone ? ' · <a class="tel" href="tel:' + esc(data.vetPhone) + '">' + esc(data.vetPhone) + '</a>' : '') + '</p>' : '') +
