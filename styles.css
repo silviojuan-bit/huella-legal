@@ -1256,3 +1256,74 @@ body.legal .card {
   .band-forest,
   .band-forest .lead { color: #000; }
 }
+
+/* Lista de aviso: iPhone y otros países (#avisame) */
+.band-forest a.on-dark { color: #fff; font-weight: 700; }
+
+.avisame-grid { display: grid; gap: 1.5rem; }
+.avisame-copy h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+}
+.avisame-card {
+  margin-top: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.avisame-card:focus { outline: none; }
+.field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.65rem 0.75rem;
+  border: 1.5px solid #5c564c;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+.choice-group {
+  border: 0;
+  padding: 0;
+  margin: 0 0 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+.choice-group legend {
+  width: 100%;
+  margin-bottom: 0.35rem;
+  padding: 0;
+  font-weight: 700;
+}
+.choice {
+  display: inline-flex;
+  gap: 0.5rem;
+  min-height: 44px;
+  align-items: center;
+  cursor: pointer;
+}
+.choice-group .choice {
+  display: inline-flex;
+  margin: 0;
+  font-weight: 600;
+}
+.choice input { width: 1.25rem; height: 1.25rem; accent-color: var(--forest); flex: none; }
+.consent { align-items: flex-start; margin: 0.25rem 0 0.25rem; line-height: 1.4; }
+.consent input { margin-top: 0.15rem; }
+.avisame-card .form-note { margin-bottom: 1rem; }
+.hp-field {
+  position: absolute !important;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+@media (min-width: 700px) {
+  .avisame-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 2.5rem;
+  }
+}

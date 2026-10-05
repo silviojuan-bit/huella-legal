@@ -56,6 +56,7 @@
         <a href="#funciones">Funciones</a>
         <a href="#como-funciona">Cómo funciona</a>
         <a href="#prueba">Prueba cerrada</a>
+        <a href="#avisame">iPhone</a>
         <a href="#plus">Plus</a>
         <a href="#faq">Preguntas</a>
       </nav>
@@ -67,6 +68,7 @@
             <a href="#funciones">Funciones</a>
             <a href="#como-funciona">Cómo funciona</a>
             <a href="#prueba">Prueba cerrada</a>
+            <a href="#avisame">Avísame (iPhone / otros países)</a>
             <a href="#plus">Plus</a>
             <a href="#faq">Preguntas</a>
             <a href="privacidad.html">Privacidad</a>
@@ -99,6 +101,7 @@
             <a class="btn btn-secondary" href="#funciones">Ver funciones</a>
           </div>
           <p class="hero-note"><a href="#plus">Un mes de Huella Plus</a> al empezar. Lanzamiento público previsto el 5 de octubre de 2026.</p>
+          <p class="hero-note">¿Tienes iPhone o vives fuera de España? <a href="#avisame">Te avisamos cuando esté disponible para ti</a>.</p>
         </div>
         <div class="hero-art" data-depth="0.12">
           <img class="dogs" src="images/dogs-cutout.png" width="860" height="663" alt="Un yorkshire y un teckel, los perros de Huella" />
@@ -257,7 +260,7 @@
           </li>
           <li>
             <h3>Instala Huella</h3>
-            <p class="step-copy">Cuando Google te reconozca, instala la app desde su ficha. De momento no hay versión para iPhone. Si Play dice que no está disponible, vuelve al paso anterior: hasta que no aceptes, no deja instalar.</p>
+            <p class="step-copy">Cuando Google te reconozca, instala la app desde su ficha. ¿Tienes iPhone? La versión para iPhone está en revisión: <a class="on-dark" href="#avisame">apúntate y te avisamos</a>. Si Play dice que no está disponible, vuelve al paso anterior: hasta que no aceptes, no deja instalar.</p>
             <div class="test-actions">
               <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.huella.app" target="_blank" rel="noopener noreferrer">Instalar en Google Play<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
             </div>
@@ -290,6 +293,64 @@
       </div>
     </section>
 
+    <section id="avisame" class="section avisame-section reveal">
+      <div class="wrap avisame-grid">
+        <div class="avisame-copy">
+          <p class="eyebrow">iPhone y otros países</p>
+          <h2>Avísame cuando salga en iPhone o en mi país</h2>
+          <p class="lead">La versión para iPhone está en revisión en la App Store y Huella aún no está disponible en todos los países. Déjanos tus datos y te escribimos en cuanto puedas instalarla.</p>
+          <p class="disclaimer">Solo te escribiremos para avisarte. Nada de publicidad.</p>
+        </div>
+        <form id="avisame-form" class="mail-card avisame-card" name="avisame" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="avisame" />
+          <p class="hp-field" aria-hidden="true">
+            <label>No rellenes este campo si eres humano: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+          <p class="mail-title">Avísame</p>
+          <div class="field">
+            <label for="av-nombre">Tu nombre o usuario de Instagram</label>
+            <input id="av-nombre" name="nombre" type="text" autocomplete="nickname" required maxlength="80" placeholder="Ana o @ana_y_su_perro" />
+          </div>
+          <div class="field">
+            <label for="av-correo">Tu correo</label>
+            <input id="av-correo" name="correo" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="tucorreo@ejemplo.com" />
+          </div>
+          <fieldset class="field choice-group">
+            <legend>¿Qué móvil tienes?</legend>
+            <label class="choice"><input type="radio" name="dispositivo" value="iPhone" required checked /> iPhone</label>
+            <label class="choice"><input type="radio" name="dispositivo" value="Android" /> Android</label>
+          </fieldset>
+          <div class="field">
+            <label for="av-pais">¿Dónde vives?</label>
+            <select id="av-pais" name="pais" required>
+              <option value="España">España</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="México">México</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="field" id="av-otro-wrap" hidden>
+            <label for="av-otro">¿Qué país?</label>
+            <input id="av-otro" name="pais_otro" type="text" autocomplete="country-name" maxlength="60" />
+          </div>
+          <label class="choice consent">
+            <input type="checkbox" name="consentimiento" value="Sí, acepto que me escribáis para avisarme" required />
+            Acepto que Huella use mi correo solo para avisarme cuando esté disponible para mí.
+          </label>
+          <p class="form-note">Usaremos tu correo solo para avisarte cuando Huella esté disponible para ti. Puedes pedir que lo borremos escribiendo a <a href="mailto:app.huella.es@gmail.com">app.huella.es@gmail.com</a>. Más información en la <a href="privacidad.html#lista-aviso">Política de privacidad</a>.</p>
+          <button class="btn btn-primary" type="submit">Avísame</button>
+          <p id="avisame-status" class="form-note" role="status" aria-live="polite"></p>
+        </form>
+        <div id="avisame-gracias" class="mail-card avisame-card avisame-thanks" hidden tabindex="-1">
+          <p class="mail-title">¡Gracias! Ya estás en la lista</p>
+          <p>Te escribiremos a tu correo en cuanto Huella esté disponible para ti. Si cambias de idea, escribe a <a href="mailto:app.huella.es@gmail.com">app.huella.es@gmail.com</a> y borramos tus datos.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="plus" class="section reveal">
       <div class="wrap plus-grid">
         <div class="plus-copy">
@@ -319,7 +380,11 @@
         <div class="faq-list">
           <details>
             <summary>¿Puedo usar Huella en el iPhone?</summary>
-            <p>Ahora mismo no. La prueba cerrada y el lanzamiento de octubre son solo para Android.</p>
+            <p>Todavía no. La versión para iPhone está en revisión en la App Store. <a href="#avisame">Déjanos tu correo</a> y te avisamos en cuanto puedas instalarla.</p>
+          </details>
+          <details>
+            <summary>No vivo en España. ¿Puedo usarla?</summary>
+            <p>De momento Huella está pensada para España. Si vives en otro país (por ejemplo, Argentina o Uruguay), <a href="#avisame">apúntate</a> y te escribimos cuando llegue a tu país.</p>
           </details>
           <details>
             <summary>¿Cómo me uno a la prueba?</summary>
@@ -396,6 +461,47 @@
           var body = "Hola Silvio,\n\nQuiero unirme a la prueba cerrada de Huella.\n\nNombre: " + nombre + "\nGmail de Google Play: " + gmail + "\n\nGracias.";
           window.location.href = "mailto:silviojuan@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
           status.textContent = "Si tu app de correo no se abre, escribe a silviojuan@gmail.com con tu nombre y tu Gmail.";
+        });
+      }
+      var avForm = document.getElementById("avisame-form");
+      if (avForm) {
+        var avPais = document.getElementById("av-pais");
+        var avOtroWrap = document.getElementById("av-otro-wrap");
+        var avOtro = document.getElementById("av-otro");
+        var avStatus = document.getElementById("avisame-status");
+        var avThanks = document.getElementById("avisame-gracias");
+        var syncOtro = function () {
+          var isOtro = avPais.value === "Otro";
+          avOtroWrap.hidden = !isOtro;
+          avOtro.required = isOtro;
+        };
+        avPais.addEventListener("change", syncOtro);
+        syncOtro();
+        var showThanks = function () {
+          avForm.hidden = true;
+          avThanks.hidden = false;
+          avThanks.focus();
+        };
+        avForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          if (avForm.elements["bot-field"].value) { showThanks(); return; }
+          var button = avForm.querySelector("button[type=submit]");
+          button.disabled = true;
+          avStatus.textContent = "Enviando…";
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(new FormData(avForm)).toString()
+          }).then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            avForm.reset();
+            syncOtro();
+            avStatus.textContent = "";
+            showThanks();
+          }).catch(function () {
+            button.disabled = false;
+            avStatus.innerHTML = "No se ha podido enviar. Prueba otra vez o escríbenos a <a href=\"mailto:app.huella.es@gmail.com?subject=Av%C3%ADsame%20cuando%20salga%20Huella\">app.huella.es@gmail.com</a>.";
+          });
         });
       }
       document.querySelectorAll(".menu-panel a").forEach(function (link) {
