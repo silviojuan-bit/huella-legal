@@ -123,8 +123,12 @@
     }
     function photoHtml(src) {
       var fallback = '<div class="photo-fallback" aria-hidden="true">🐾</div>';
-      if (!src) return fallback;
-      return '<img class="photo" alt="" src="' + esc(src) + '" onerror="this.outerHTML=\'<div class=photo-fallback aria-hidden=true>🐾</div>\'" />';
+      // Only the photo the owner chose to publish (Huella's Firebase Storage) or an old inline image.
+      var ok = typeof src === 'string' &&
+        ((src.length < 400 && src.indexOf('https://firebasestorage.googleapis.com/') === 0) ||
+          /^data:image\/(jpeg|png|webp);base64,/.test(src));
+      if (!ok) return fallback;
+      return '<img class="photo" alt="Foto" referrerpolicy="no-referrer" loading="eager" src="' + esc(src) + '" onerror="this.outerHTML=\'<div class=photo-fallback aria-hidden=true>🐾</div>\'" />';
     }
     const hash = location.hash || '';
     const m = hash.match(/[#&?]p=([^&]+)/);

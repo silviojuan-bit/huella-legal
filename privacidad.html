@@ -90,7 +90,7 @@
     <p>
       El recorrido de cada paseo (puntos del trayecto, distancia, duración y fecha) se guarda <strong>en tu dispositivo</strong> para mostrarte el resumen, el mapa del recorrido y el historial de paseos.
       No se envía a un servidor de Huella, <strong>no se vende ni se comparte</strong> con anunciantes ni con terceros.
-      Para dibujar el mapa, la app usa el servicio de mapas del propio sistema (Apple Maps en iPhone), que descarga el mapa de la zona como cualquier app de mapas.
+      Para dibujar el mapa, la app usa el servicio de mapas del sistema (Apple Maps en iPhone y Google Maps en Android), que descarga el mapa de la zona como cualquier app de mapas; el recorrido no se envía a ese servicio.
       Puedes borrar el historial desinstalando la app o borrando sus datos, y denegar o retirar el permiso de ubicación cuando quieras en los ajustes del teléfono.
     </p>
 
@@ -98,7 +98,20 @@
     <p>
       Si lo permites, puedes hacer o elegir una foto del perro para la ficha.
       Las fotos se gestionan en el dispositivo (y, si lo autorizas, en tu galería).
-      No las subimos a un servidor de Huella en la versión actual.
+      No las subimos a un servidor de Huella, salvo en un caso que tú eliges:
+    </p>
+    <h3>Foto en la ficha pública del QR (opcional)</h3>
+    <p>
+      Si activas <strong>«Foto en la ficha»</strong> en el QR de emergencia, Huella sube una <strong>copia pequeña y comprimida</strong> de la foto de tu mascota
+      a <strong>Google Firebase Storage</strong> (servicio de almacenamiento de Google que Huella usa como encargado del tratamiento), para que se vea en la ficha pública que abre el QR.
+      La foto queda accesible para <strong>cualquiera que escanee el QR o tenga el enlace</strong>; la dirección de la foto es aleatoria y no se puede listar ni buscar.
+      Para poder borrarla, la app crea un identificador anónimo de la instalación (sin nombre, email ni teléfono).
+      Solo se sube la foto: el resto de datos de la ficha va dentro del propio enlace del QR y no se guarda en ningún servidor.
+      Los servidores pueden estar fuera de la UE (Google aplica las cláusulas y garantías del RGPD para estas transferencias).
+    </p>
+    <p>
+      Si desactivas la opción, cambias de foto o borras la mascota, la app borra (o sustituye) la copia subida. Si desinstalas la app sin desactivarla antes,
+      puedes pedirnos que la borremos escribiendo al contacto de la ficha de la store.
     </p>
 
     <h2>5. Notificaciones</h2>
