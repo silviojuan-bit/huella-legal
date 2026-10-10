@@ -36,6 +36,9 @@
     h1 { margin: 0 0 .75rem; font-size: 1.75rem; }
     .line { margin: .55rem 0; line-height: 1.45; }
     .muted { color: var(--muted); font-size: .85rem; margin-top: 1.25rem; }
+    ul.list { margin: .25rem 0 .55rem 1.6rem; padding: 0; line-height: 1.45; }
+    ul.list li { margin: .2rem 0; }
+    .note { white-space: pre-wrap; }
     .empty { color: var(--muted); text-align: center; padding: 2rem 1rem; }
     a.tel { color: var(--forest); font-weight: 700; text-decoration: none; }
     img.photo, .photo-fallback {
@@ -89,13 +92,34 @@
       var tel = phone || (nameIsPhone ? name : '');
       var html = '';
       if (tutor) html += '<p class="line">Tutor: ' + esc(tutor) + '</p>';
-      if (tel) html += '<p class="line">Teléfono: <a class="tel" href="tel:' + esc(tel) + '">' + esc(tel) + '</a></p>';
+      if (tel) html += '<p class="line">Teléfono: ' + telLink(tel) + '</p>';
       return html;
     }
     function lostBanner(species) {
       var copy = speciesCopy(species);
       var phrase = copy === 'mascota' ? 'MASCOTA PERDIDA' : copy.toUpperCase() + ' PERDIDO';
       return 'SE BUSCA · ' + phrase;
+    }
+    function fmtDate(iso) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ''));
+      return m ? m[3] + '/' + m[2] + '/' + m[1] : esc(iso);
+    }
+    function line(icon, label, value) {
+      if (!value) return '';
+      return '<p class="line">' + icon + ' ' + (label ? label + ': ' : '') + esc(value) + '</p>';
+    }
+    function listHtml(icon, label, items) {
+      if (!Array.isArray(items) || !items.length) return '';
+      return '<p class="line" style="margin-bottom:0">' + icon + ' ' + label + ':</p><ul class="list">' +
+        items.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
+    }
+    function telLink(tel) {
+      return '<a class="tel" href="tel:' + esc(String(tel).replace(/[^\d+]/g, '')) + '">' + esc(tel) + '</a>';
+    }
+    function vetHtml(data) {
+      var who = [data.vn, data.vet].filter(Boolean).map(esc).join(' · ');
+      if (!who && !data.vetPhone) return '';
+      return '<p class="line">🏥 Veterinario: ' + who + (data.vetPhone ? (who ? ' · ' : '') + telLink(data.vetPhone) : '') + '</p>';
     }
     function photoHtml(src) {
       var fallback = '<div class="photo-fallback" aria-hidden="true">🐾</div>';
@@ -114,11 +138,16 @@
         photoHtml(data.photo) +
         '<h1>' + esc(data.name) + '</h1>' +
         contactHtml(data) +
-        (data.allergies ? '<p class="line">⚠️ Alergias: ' + esc(data.allergies) + '</p>' : '') +
-        (data.meds ? '<p class="line">💊 Medicación: ' + esc(data.meds) + '</p>' : '') +
-        (data.vet ? '<p class="line">🏥 Vet: ' + esc(data.vet) + (data.vetPhone ? ' · <a class="tel" href="tel:' + esc(data.vetPhone) + '">' + esc(data.vetPhone) + '</a>' : '') + '</p>' : '') +
-        (data.city ? '<p class="line">📍 ' + esc(data.city) + '</p>' : '') +
-        '<p class="muted">Actualizado ' + esc(data.updated || '') + '</p>';
+        line('⚠️', 'Alergias', data.allergies) +
+        line('🩺', 'Enfermedades', data.ill) +
+        (data.it ? '<p class="line note">📝 ' + esc(data.it) + '</p>' : '') +
+        (Array.isArray(data.ms) && data.ms.length ? listHtml('💊', 'Medicación', data.ms) : line('💊', 'Medicación', data.meds)) +
+        line('🥣', 'Puede comer', data.fd) +
+        line('⚖️', 'Cantidad al día', data.am) +
+        listHtml('🕒', 'Comidas', data.mt) +
+        vetHtml(data) +
+        line('📍', '', data.city) +
+        (data.updated ? '<p class="muted">Actualizado ' + fmtDate(data.updated) + '</p>' : '');
     }
   </script>
 </body>
