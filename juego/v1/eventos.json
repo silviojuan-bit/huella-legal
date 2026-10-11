@@ -1,14 +1,30 @@
 {
   "version": 1,
-  "nota": "Eventos de temporada de Huella. activo=false apaga el evento; tema.activo=false apaga solo los colores/decoraciones. fin: hasta cuándo se ganan calabazas (ej. 2026-11-01T10:00:00+01:00 para dejarlo hasta el 1/11 por la mañana). Puntos: checkin, comida (máx comidasMax al día), paseo (máx paseosMax al día), multiplicadorPlus. precios: id de prenda → calabazas, solo si se quiere cambiar alguno.",
+  "nota": "Eventos de temporada de Huella. activo=false apaga el evento; tema.activo=false apaga solo los colores/decoraciones. fin: hasta cuándo se ganan calabazas (2026-11-06T00:00:00+01:00 = hasta el 05/11 a las 23:59 en Madrid). Puntos: checkin, comida (máx comidasMax al día), paseo (máx paseosMax al día), multiplicadorPlus. precios: id de prenda → calabazas, solo si se quiere cambiar alguno. limiteDiario: prendas que se pueden desbloquear al día (gratis / Plus), día de Madrid.",
   "eventos": [
     {
       "id": "halloween-2026",
       "activo": true,
       "inicio": "2026-10-11T00:00:00+02:00",
-      "fin": "2026-11-01T00:00:00+01:00",
-      "puntos": { "checkin": 20, "comida": 4, "comidasMax": 3, "paseo": 8, "paseosMax": 2, "multiplicadorPlus": 2 },
-      "tema": { "activo": true, "naranja": "#E8742B", "morado": "#4B2A7B", "noche": "#1E1726" },
+      "fin": "2026-11-06T00:00:00+01:00",
+      "puntos": {
+        "checkin": 15,
+        "comida": 2,
+        "comidasMax": 3,
+        "paseo": 3,
+        "paseosMax": 2,
+        "multiplicadorPlus": 2
+      },
+      "limiteDiario": {
+        "gratis": 1,
+        "plus": 2
+      },
+      "tema": {
+        "activo": true,
+        "naranja": "#E8742B",
+        "morado": "#4B2A7B",
+        "noche": "#1E1726"
+      },
       "precios": {}
     }
   ]
