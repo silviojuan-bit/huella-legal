@@ -45,6 +45,11 @@
       width: 96px; height: 96px; border-radius: 48px; display: block; margin: 0 auto 1rem;
       border: 3px solid var(--terracotta); background: #FBEFE6; object-fit: cover;
     }
+    .notify { margin-top: 1.25rem; padding: 1rem; border-radius: 14px; background: #F3F7F4; border: 1px solid #D7E5DB; }
+    .notify button { width: 100%; padding: .85rem; border: 0; border-radius: 12px; background: var(--forest); color: #fff; font-weight: 800; font-size: 1rem; margin-top: .6rem; }
+    .notify button[disabled] { opacity: .6; }
+    .notify textarea { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: .6rem; font: inherit; margin-top: .5rem; }
+    .notify label { display: flex; gap: .5rem; align-items: flex-start; margin-top: .6rem; font-size: .9rem; }
     .photo-fallback {
       display: flex; align-items: center; justify-content: center;
       color: var(--terracotta); font-size: 2.1rem; line-height: 1;
@@ -130,6 +135,53 @@
       if (!ok) return fallback;
       return '<img class="photo" alt="Foto" referrerpolicy="no-referrer" loading="eager" src="' + esc(src) + '" onerror="this.outerHTML=\'<div class=photo-fallback aria-hidden=true>🐾</div>\'" />';
     }
+    // Avisar a la familia (solo si el tutor lo activó en la app). Deja una nota pequeña en
+    // el buzón de su app (Firebase Storage). La ubicación solo si se marca, y redondeada (~1 km).
+    var BUCKET = 'huella-app-36f7b.firebasestorage.app';
+    function mailbox(data) {
+      var m = /^([A-Za-z0-9]{10,64})\.([a-z0-9]{24})$/.exec(String(data.nt || ''));
+      return m ? { uid: m[1], token: m[2] } : null;
+    }
+    function notifyHtml(data) {
+      if (!mailbox(data)) return '';
+      return '<div class="notify" id="notify">' +
+        '<b>¿Has encontrado a ' + esc(data.name) + '?</b>' +
+        '<p class="line" style="margin:.3rem 0 0">Avisa a su familia: les llegará un aviso en la app Huella.</p>' +
+        '<textarea id="nmsg" rows="2" maxlength="280" placeholder="Mensaje (opcional): dónde está, tu teléfono…"></textarea>' +
+        '<label><input type="checkbox" id="nloc"> Compartir mi ubicación aproximada (unos 1 km, no la exacta)</label>' +
+        '<button id="nbtn" type="button">Avisar a su familia</button>' +
+        '<p class="muted" id="nst" style="margin-top:.5rem"></p></div>';
+    }
+    function rid() { var s = ''; while (s.length < 20) s += Math.floor(Math.random() * 36).toString(36); return s.slice(0, 20); }
+    function send(box, body) {
+      var path = 'n/' + box.uid + '/' + box.token + '/' + rid() + '.json';
+      return fetch('https://firebasestorage.googleapis.com/v0/b/' + BUCKET + '/o?uploadType=media&name=' + encodeURIComponent(path), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+      }).then(function (r) { if (!r.ok) throw new Error(r.status); });
+    }
+    function wireNotify(data) {
+      var box = mailbox(data); var btn = document.getElementById('nbtn');
+      if (!box || !btn) return;
+      btn.onclick = function () {
+        var st = document.getElementById('nst');
+        var body = { at: new Date().toISOString() };
+        var msg = (document.getElementById('nmsg').value || '').trim().slice(0, 280);
+        if (msg) body.msg = msg;
+        btn.disabled = true; st.textContent = 'Enviando…';
+        var done = function () {
+          send(box, body).then(function () {
+            st.textContent = '¡Gracias! Hemos avisado a su familia.'; btn.textContent = 'Aviso enviado';
+          }).catch(function () { st.textContent = 'No se ha podido enviar. Llama al teléfono de arriba si lo hay.'; btn.disabled = false; });
+        };
+        if (document.getElementById('nloc').checked && navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (p) {
+            body.lat = Math.round(p.coords.latitude * 100) / 100;
+            body.lng = Math.round(p.coords.longitude * 100) / 100;
+            body.acc = 1000; done();
+          }, done, { enableHighAccuracy: false, timeout: 8000, maximumAge: 600000 });
+        } else done();
+      };
+    }
     const hash = location.hash || '';
     const m = hash.match(/[#&?]p=([^&]+)/);
     const data = m ? b64UrlToJson(decodeURIComponent(m[1])) : null;
@@ -151,7 +203,9 @@
         listHtml('🕒', 'Comidas', data.mt) +
         vetHtml(data) +
         line('📍', '', data.city) +
-        (data.updated ? '<p class="muted">Actualizado ' + fmtDate(data.updated) + '</p>' : '');
+        (data.updated ? '<p class="muted">Actualizado ' + fmtDate(data.updated) + '</p>' : '') +
+        notifyHtml(data);
+      wireNotify(data);
     }
   </script>
 </body>
