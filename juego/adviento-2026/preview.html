@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Huella · Adviento (vista previa local)</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #F9F7F2; color: #1C1C1C; }
+    header { padding: 16px 20px; background: #1F3D32; color: #fff; }
+    header p { margin: 6px 0 0; color: #F3D7A1; }
+    main { padding: 16px 20px 40px; }
+    label { font-weight: 700; margin-right: 8px; }
+    select { font: inherit; padding: 6px 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 16px; }
+    figure { margin: 0; background: #fff; border-radius: 12px; padding: 8px; text-align: center; }
+    img { width: 100%; height: auto; background: #eee; }
+    figcaption { font-size: 12px; margin-top: 4px; }
+    .miss { outline: 2px solid #B42318; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Calendario de Adviento · vista previa local</strong>
+    <p>Estas imágenes no están en la web que usa la app publicada. Sirve esta carpeta y abre esta página.</p>
+  </header>
+  <main>
+    <label for="look">Prenda</label>
+    <select id="look"></select>
+    <p id="stat"></p>
+    <div class="grid" id="grid"></div>
+  </main>
+  <script>
+    const LOOKS = [
+      ['nav-elfo', 'Elfo'],
+      ['nav-galleta', 'Galleta de jengibre'],
+      ['nav-reno', 'Reno'],
+      ['nav-grunon', 'Gruñón verde'],
+      ['nav-muneco-nieve', 'Muñeco de nieve'],
+      ['nav-traje-papa-noel', 'Traje de Papá Noel'],
+      ['nav-cascanueces', 'Cascanueces'],
+      ['nav-lazo', 'Lazo rojo'],
+      ['nav-cascabel', 'Cascabel dorado'],
+      ['nav-calcetin', 'Calcetín navideño'],
+      ['nav-acebo', 'Diadema de acebo'],
+      ['nav-panuelo-copos', 'Pañuelo de copos'],
+      ['nav-estrella', 'Estrella de cartón'],
+      ['nav-campanas', 'Collar de campanas'],
+      ['nav-gorro-lana', 'Gorro de lana rojo'],
+      ['nav-bufanda', 'Bufanda navideña'],
+      ['nav-corona-acebo', 'Corona de acebo'],
+      ['nav-mitones', 'Mitones rojos'],
+      ['nav-jersey', 'Jersey navideño'],
+      ['nav-guirnalda', 'Guirnalda'],
+    ];
+    const FONDOS = [['nav-casa', 'Casa de Papá Noel'], ['nav-pueblo', 'Pueblo nevado'], ['nav-nieve', 'Prado nevado']];
+    const sel = document.querySelector('#look');
+    for (const [id, name] of [...LOOKS, ...FONDOS]) {
+      const o = document.createElement('option');
+      o.value = id; o.textContent = name;
+      sel.appendChild(o);
+    }
+    async function show() {
+      const id = sel.value;
+      const grid = document.querySelector('#grid');
+      const stat = document.querySelector('#stat');
+      grid.innerHTML = '';
+      if (id.startsWith('nav-') && FONDOS.some(([f]) => f === id)) {
+        const img = new Image();
+        img.src = `fondos/${id}.jpg`;
+        img.alt = id;
+        const fig = document.createElement('figure');
+        fig.append(img, Object.assign(document.createElement('figcaption'), { textContent: id }));
+        grid.append(fig);
+        stat.textContent = 'Fondo';
+        return;
+      }
+      const index = await fetch('index.json').then((r) => r.json());
+      const figs = Object.keys(index.personajes).filter((f) => index.personajes[f][id]).sort();
+      stat.textContent = `${figs.length} figuras con ${id}`;
+      for (const figure of figs) {
+        const img = new Image();
+        img.alt = figure;
+        img.src = `personajes/${figure}/${id}.webp?v=${index.personajes[figure][id]}`;
+        img.onerror = () => img.classList.add('miss');
+        const cap = document.createElement('figcaption');
+        cap.textContent = figure;
+        const fig = document.createElement('figure');
+        fig.append(img, cap);
+        grid.append(fig);
+      }
+    }
+    sel.onchange = () => show().catch((e) => { document.querySelector('#stat').textContent = String(e); });
+    show().catch((e) => { document.querySelector('#stat').textContent = String(e); });
+  </script>
+</body>
+</html>
